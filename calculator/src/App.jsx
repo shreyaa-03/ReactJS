@@ -1,13 +1,15 @@
 
 import style from './css/App.module.css'
+import Display from './components/Display'
+import ButtonsContainer from './components/ButtonsContainer'
+
 function App() {
   return <div className={style['calculator']}>
-    <input className={style['display']} type="text" />
-    <div className={style["buttons-container"]}>
-      <button >C</button>
+  <Display></Display>
+  <ButtonsContainer></ButtonsContainer>
     </div>
 
- </div>
+
 }
 
 export default App
