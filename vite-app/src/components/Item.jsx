@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import style from "../css/Item.module.css";
-export default function Item({ foodItem ,buttonClicked}) {
+export default function Item({ foodItem ,bought, buttonClicked}) {
   
   return (
     <div>
-      <li className={`${style["kg-item"]} list-group-item `}>
+      <li className={`${style["kg-item"]} list-group-item ${bought && 'active'} `}>
         {foodItem}
         <button
           type="button"
