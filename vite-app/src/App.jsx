@@ -27,7 +27,7 @@ const App = () => {
         <FoodInput handleKeyDown={onKeyDown}></FoodInput>
         <ErrorMsg items={foodItems}></ErrorMsg>
         {/* <p>{ textToShow}</p> */}
-      <FoodItems items={foodItems} ></FoodItems>
+      <FoodItems items={foodItems} setFoodItems={setFoodItems} ></FoodItems>
       </Container>
       {/* <Container>
         <p>Above food for your well-being.</p>
