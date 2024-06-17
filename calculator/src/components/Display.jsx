@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import style from "../css/Display.module.css";
 export default function Display({display}) {
   return (
