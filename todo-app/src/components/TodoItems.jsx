@@ -1,17 +1,23 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
-import style from '../css/TodoItems.module.css'
-import TodoItem from './TodoItem'
+import style from "../css/TodoItems.module.css";
+import TodoItem from "./TodoItem";
 
-export default function TodoItems({todoItems}) {
+export default function TodoItems({ todoItems, setTodoItems }) {
+
+  const deleteItem = (itemToDel) => {
+    console.log("delete button clicked")
+    let newItems = todoItems.filter(item => item !== itemToDel)
+    setTodoItems(newItems)
+  }
+
   return (
     <div>
-       <div className={style['item-container']}>
-              {todoItems.map(items => (<TodoItem todoName={items.name} todoDate={items.due} ></TodoItem>) )}
-             
-          </div>
-      
+      <div className={style["item-container"]}>
+        {todoItems.map((items) => (
+          <TodoItem key={items.name} todoName={items.name} todoDate={items.due} handleOnClicked={ ()=>deleteItem(items)} ></TodoItem>
+        ))}
+      </div>
     </div>
-  )
+  );
 }
-

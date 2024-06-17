@@ -1,28 +1,27 @@
 import AppName from "./components/AppName";
 import AddTodo from "./components/AddTodo";
 import TodoItems from "./components/TodoItems";
-
+import { useState } from "react";
 
 function App() {
-  let todoItems = [
-    {
-      name: 'Buy Milk',
-      due :'16/06/2024'
-    },
-    {
-      name: 'Buy Choclate',
-      due :'16/06/2024'
-    },
-    {
-      name: 'Buy Cream',
-      due :'16/06/2024'
-    },
-  ]
+
+  let [todoItems, setTodoItems] = useState([]) 
+
+  const onClicked = (newItem, newDate) => {
+    if (newItem && newDate) {
+      const newItems = [...todoItems, {name: newItem,due: newDate }]
+      setTodoItems(newItems)
+      console.log(event.target.value)
+    } else {
+      alert("Enter both: Name and date")
+    }
+   
+  }
   return (
     <center className="container">
       <AppName></AppName>
-      <AddTodo></AddTodo>
-      <TodoItems todoItems={todoItems}></TodoItems>
+      <AddTodo handleOnClick={onClicked}></AddTodo>
+      <TodoItems todoItems={todoItems} setTodoItems={setTodoItems}></TodoItems>
     </center>
   );
 }
