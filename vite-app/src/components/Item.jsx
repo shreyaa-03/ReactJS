@@ -9,9 +9,9 @@ export default function Item({ foodItem ,bought, buttonClicked}) {
         <button
           type="button"
           className={`${style.btn} btn btn-info`}
-          onClick={buttonClicked}
+          onClick={buttonClicked} 
         >
-          Buy
+          {bought? 'Delete': 'Buy'}
         </button>
       </li>
     </div>

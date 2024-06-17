@@ -17,6 +17,8 @@ const App = () => {
       event.target.value = ''
       console.log(newFoodItem)
     }
+
+    
 }
   return (
     <>

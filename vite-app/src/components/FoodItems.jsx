@@ -6,11 +6,19 @@ export default function FoodItems({ items }) {
 
   let [boughtItems, setBoughtItems] = useState([])
 
-  const buttonClicked = (event,item) => {
-    console.log(`${item} bought`);
-    let newItems = [...boughtItems, item]
-    setBoughtItems(newItems)
+  const buttonClicked = (event, item) => {
+    if (boughtItems.includes(item)) {
+      let newItems = boughtItems.filter(boughtItem => boughtItem !== item)
+      setBoughtItems(newItems)
+      console.log(`${item} removed`);
+    }
+    else {
+      console.log(`${item} bought`);
+      let newItems = [...boughtItems, item]
+      setBoughtItems(newItems)
+    }
   };
+ 
   return (
     <React.Fragment>
       <ul className="list-group">
@@ -18,7 +26,7 @@ export default function FoodItems({ items }) {
           <Item
             bought={boughtItems.includes(item)}
             key={item}
-            buttonClicked={(event) => buttonClicked(event,item)}
+            buttonClicked={(event) => buttonClicked(event, item)}
             foodItem={item}
           ></Item>
         ))}
