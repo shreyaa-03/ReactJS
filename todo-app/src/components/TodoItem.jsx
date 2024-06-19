@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import style from "../css/TodoItem.module.css";
+import { AiFillDelete } from "react-icons/ai";
+
 function TodoItem({ todoName, todoDate,handleOnClicked }) {
   return (
     <div className="container text-center">
@@ -12,7 +14,7 @@ function TodoItem({ todoName, todoDate,handleOnClicked }) {
             className={`${style["kg-button"]} btn btn-danger`}
             onClick={ handleOnClicked}
           >
-            Delete
+           <AiFillDelete />
           </button>
         </div>
       </div>

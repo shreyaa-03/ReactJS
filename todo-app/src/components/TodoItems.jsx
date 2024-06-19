@@ -6,7 +6,6 @@ import TodoItem from "./TodoItem";
 export default function TodoItems({ todoItems, setTodoItems }) {
 
   const deleteItem = (itemToDel) => {
-    console.log("delete button clicked")
     let newItems = todoItems.filter(item => item !== itemToDel)
     setTodoItems(newItems)
   }
