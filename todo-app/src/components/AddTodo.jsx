@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import style from "../css/AddTodo.module.css";
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
+import { TodoItemContext } from "../store/todoItems-store";
 import { RiAddCircleFill } from "react-icons/ri";
 
-export default function AddTodo({ handleOnClick }) {
-  
+export default function AddTodo() {
   //USE STATE - CODE
   // let [newItem, setNewItem] = useState("")
   // let [newDate, setNewDate] = useState("")
-  
+
   // // const onItemChanged = (event) => {
   // //   console.log(event.target.value)
   // //   setNewItem(event.target.value)
@@ -35,25 +35,35 @@ export default function AddTodo({ handleOnClick }) {
   // }
 
   // USEREF - CODE
-  const todoNameElement = useRef()
-  const dueDateElement = useRef()
+  const todoNameElement = useRef();
+  const dueDateElement = useRef();
+
+  const {addItem} = useContext(TodoItemContext);
 
   const handleAddButton = (event) => {
-    event.preventDefault()
-    handleOnClick(todoNameElement.current.value, dueDateElement.current.value)
-    todoNameElement.current.value = ''
-    dueDateElement.current.value =''
-}
+    event.preventDefault();
+    addItem(todoNameElement.current.value, dueDateElement.current.value);
+    todoNameElement.current.value = "";
+    dueDateElement.current.value = "";
+  };
   return (
     <div className="container text-center">
       <form className={` ${style["kg-row"]} row `} onSubmit={handleAddButton}>
         <div className="col-6">
-          <input type="text" name="newItem" placeholder="Enter todo here" ref={todoNameElement}
+          <input
+            type="text"
+            name="newItem"
+            placeholder="Enter todo here"
+            ref={todoNameElement}
             // value={newItem}  // onChange={handleChange} -> needed while using useState()
           />
         </div>
         <div className="col-4">
-          <input type="date" name="newDate" id="" ref={dueDateElement}
+          <input
+            type="date"
+            name="newDate"
+            id=""
+            ref={dueDateElement}
             // value={newDate} onChange={handleChange} -> needed while using useState()
           />
         </div>
@@ -63,7 +73,7 @@ export default function AddTodo({ handleOnClick }) {
             className={`${style["kg-button"]} btn btn-success`}
             // onClick={handleAddButton}
           >
-          <RiAddCircleFill />
+            <RiAddCircleFill />
           </button>
         </div>
       </form>
