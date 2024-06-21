@@ -19,3 +19,14 @@
 .reactions{
   margin:15px 0 0 0
 }
+
+.create-post{
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 50px;
+
+}
+
+.post-success{
+  margin-top: 10px;
+}
