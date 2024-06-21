@@ -21,6 +21,7 @@ export default function CreatePost() {
     const tags = tagsElement.current.value.split(" ");
 
     const postCreated = addPost(userId, title, body, reactions, tags);
+    
     setPostCreated(true);
 
     userIDElement.current.value = "";
