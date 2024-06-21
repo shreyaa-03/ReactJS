@@ -5,5 +5,17 @@
   width: 100%;
 }
 .sidebar {
-  min-height: 800px;
+  min-height: 840px;
+}
+
+.post-card{
+  margin: 20px 50px;
+  min-width: 30rem;
+}
+
+.hashtag{
+  margin: 0 3px;
+}
+.reactions{
+  margin:15px 0 0 0
 }
