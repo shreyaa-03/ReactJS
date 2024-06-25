@@ -1,11 +1,12 @@
 import { useState } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Sidebar from "./components/Sidebar";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
 import "./App.css";
-import CreatePost from "./components/CreatePost";
-import PostList from "./components/PostList";
-import PostListProvider from "./store/post-list-store";
+import CreatePost from "../components/CreatePost";
+import PostList from "../components/PostList";
+import PostListProvider from "../store/post-list-store";
+import { Outlet } from "react-router-dom";
 
 export default function App() {
   const [selectedTab, setSelectedTab] = useState("Home");
@@ -22,12 +23,14 @@ export default function App() {
           setActiveTab={setActiveTab}
         ></Sidebar>
         <div className="content">
-          <Header></Header>
+          {/* <Header></Header>
           {selectedTab === "Home" ? (
             <PostList></PostList>
           ) : (
             <CreatePost></CreatePost>
-          )}
+          )} */}
+          <Header />
+          <Outlet />
           <Footer></Footer>
         </div>
       </div>

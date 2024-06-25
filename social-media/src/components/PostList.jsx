@@ -9,16 +9,16 @@ export default function PostList() {
   const { postList, addAllPosts } = useContext(PostListContext);
   const [fetching, setFetching] = useState(MdFamilyRestroom)
 
-  useEffect(() => {
-  setFetching(true)
+  // useEffect(() => {
+  // setFetching(true)
 
-    fetch("https://dummyjson.com/posts")
-      .then((res) => res.json())
-      .then((data) => {
-        addAllPosts(data.posts)
-        setFetching(false)
-      });
-  }, []);
+  //   fetch("https://dummyjson.com/posts")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       addAllPosts(data.posts)
+  //       setFetching(false)
+  //     });
+  // }, []);
 
   return (
     <>
