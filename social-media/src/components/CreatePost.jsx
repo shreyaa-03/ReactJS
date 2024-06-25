@@ -1,5 +1,6 @@
 import { useContext, useRef, useState } from "react";
 import { PostListContext } from "../store/post-list-store";
+import { useNavigate } from "react-router-dom";
 
 export default function CreatePost() {
   const userIDElement = useRef();
@@ -7,6 +8,7 @@ export default function CreatePost() {
   const bodyElement = useRef();
   const reactionsElement = useRef();
   const tagsElement = useRef();
+  const navigate = useNavigate();
 
   const { addPost } = useContext(PostListContext);
 
@@ -21,7 +23,7 @@ export default function CreatePost() {
     const tags = tagsElement.current.value.split(" ");
 
     const postCreated = addPost(userId, title, body, reactions, tags);
-    
+
     setPostCreated(true);
 
     userIDElement.current.value = "";
@@ -29,6 +31,7 @@ export default function CreatePost() {
     bodyElement.current.value = "";
     reactionsElement.current.value = "";
     tagsElement.current.value = "";
+    navigate("/");
   };
 
   return (
