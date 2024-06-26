@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useContext, useRef, useState } from "react";
 import { PostListContext } from "../store/post-list-store";
 import { useNavigate } from "react-router-dom";
